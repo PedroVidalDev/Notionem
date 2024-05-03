@@ -27,8 +27,18 @@ form.addEventListener("submit", (event) => {
 function atualizarCampoMensagens(mensagem){
     const div = document.createElement("div");
     div.className = "mensagem";
-    div.innerHTML = mensagem.usuario + ": " + mensagem.texto;
 
+    const autor = document.createElement("p");
+    autor.className = "autor";
+    autor.innerHTML = mensagem.usuario;
+
+    const texto = document.createElement("p");
+    texto.className = "texto";
+    texto.innerHTML = mensagem.texto;
+
+    div.appendChild(autor);
+    div.appendChild(texto);
+    
     campoMensagem.appendChild(div);
 }
 
