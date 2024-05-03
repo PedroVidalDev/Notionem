@@ -1,1 +1,1 @@
-import "../socket/socketIndex.js";
+import "./socketIndex.js";
