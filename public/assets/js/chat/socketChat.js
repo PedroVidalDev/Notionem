@@ -8,4 +8,8 @@ function enviarMensagem(mensagem){
     });
 }
 
+socket.on("recebeu_mensagem", mensagem => {
+    atualizarCampoMensagens(mensagem);
+})
+
 export {enviarMensagem};

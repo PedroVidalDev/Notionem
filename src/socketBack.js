@@ -14,6 +14,7 @@ io.on("connection", (socket) => {
 
     socket.on("enviar_mensagem", async (mensagem, callback) => {
         // salvar no banco
+        socket.broadcast.emit("recebeu_mensagem", mensagem)
 
         callback(mensagem);
     })
