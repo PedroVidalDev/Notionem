@@ -8,6 +8,6 @@ io.on("connection", (socket) => {
     })
 
     socket.on("entrar_sala", async (nomeSala) => {
-        console.log(nomeSala);
+        socket.emit("entrou_na_sala", nomeSala);
     })
 })

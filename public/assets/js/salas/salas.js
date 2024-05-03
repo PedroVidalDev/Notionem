@@ -13,3 +13,9 @@ salas.forEach((sala) => {
         entrarNaSala(nomeSala);
     })
 })
+
+function redirecionarSala(nomeSala){
+    window.location.href = `chat.html?nome=${nomeSala}`;
+}
+
+export {redirecionarSala};
