@@ -8,7 +8,14 @@
     <title>Chat | Notionem</title>
 </head>
 <body>
-    
+    <h1 id="titulo-chat" class="titulo-chat"> Titulo teste </h1>
+    <div class="chat">
+        <div class="container-mensagens"></div>
+        <form class="form-digitar" id="form-digitar">
+            <input id="mensagem-input" class="mensagem-input" type="text" name="mensagem" placeholder="Digite a mensagem aqui..." required>
+            <input id="enviar-input" class="enviar-input" type="submit" value="Enviar">
+        </form>
+    </div>
 </body>
 <script src="/socket.io/socket.io.js"> </script>
 <script src="./assets/js/chat/chat.js"type="module"> </script>
