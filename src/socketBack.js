@@ -8,6 +8,13 @@ io.on("connection", (socket) => {
     })
 
     socket.on("entrar_sala", async (nomeSala) => {
+        socket.join(nomeSala);
         socket.emit("entrou_na_sala", nomeSala);
+    })
+
+    socket.on("enviar_mensagem", async (mensagem, callback) => {
+        // salvar no banco
+
+        callback(mensagem);
     })
 })
