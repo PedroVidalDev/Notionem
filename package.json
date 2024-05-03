@@ -4,7 +4,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon ./src/socketBack.js"
+    "dev": "nodemon ./src/socketBack.js",
+    "comp": "node ./src/socketBack.js"
   },
   "type": "module",
   "keywords": [],
