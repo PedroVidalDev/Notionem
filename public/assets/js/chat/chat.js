@@ -9,6 +9,8 @@ const campoMensagem = document.querySelector("#container-mensagens");
 
 const form = document.querySelector("#form-digitar");
 
+const botaoSair = document.querySelector("#sair");
+
 titulo.textContent = nomeSala;
 
 entrouNoChat(nomeSala);
@@ -24,6 +26,12 @@ form.addEventListener("submit", (event) => {
     const texto = document.querySelector("#mensagem-input").value;
     
     enviarMensagem({nomeSala, usuario, texto});
+})
+
+botaoSair.addEventListener("click", (event) => {
+    event.preventDefault();
+
+    window.location.href = "salas.html";
 })
 
 function atualizarCampoMensagens(mensagem){

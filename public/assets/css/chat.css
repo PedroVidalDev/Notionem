@@ -94,3 +94,22 @@ p.texto{
     font-size: 0.3rem;
     color: white;
 }
+
+button.sair{
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+    width: 100px;
+    height: 60px;
+    font-size: 0.3rem;
+    background: none;
+    color: white;
+    border-radius: 30px;
+    border: 2px solid var(--cor-destaque);
+    cursor: pointer;
+    transition: .5s;
+}
+
+button.sair:hover{
+    color: var(--cor-destaque);
+}
