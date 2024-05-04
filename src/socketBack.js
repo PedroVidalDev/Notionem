@@ -1,3 +1,4 @@
+import { atualizaSala } from "./db/salasDb.js";
 import io from "./server.js";
 
 io.on("connection", (socket) => {
@@ -21,6 +22,8 @@ io.on("connection", (socket) => {
     socket.on("enviar_mensagem", async (mensagem, callback) => {
         // salvar no banco
         socket.broadcast.to(mensagem.nomeSala).emit("recebeu_mensagem", mensagem)
+
+        const res = await atualizaSala(mensagem);
 
         callback(mensagem);
     })

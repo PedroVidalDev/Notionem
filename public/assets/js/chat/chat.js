@@ -79,15 +79,14 @@ function atualizarCampoMensagens(mensagem){
         }
         else if(mensagem.acao == "saiu"){
             entrada = `
-                <p class="aviso-entrada-saida"> <span class="negrito"> ${mensagem.usuario} </span> saiu no chat! </p>
+                <p class="aviso-entrada-saida"> <span class="negrito"> ${mensagem.usuario} </span> saiu do chat! </p>
             ` 
         }
         
-
         div.innerHTML += entrada;
     }
     
-    campoMensagem.appendChild(div);
+    campoMensagem.appendChild(div);// pedrohvidals lZLk6TNdOjUqC3j3
     
     campoMensagem.scrollTop = campoMensagem.scrollHeight;
 }

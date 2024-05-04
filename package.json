@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon ./src/socketBack.js"  
+    "dev": "nodemon ./src/socketBack.js"
   },
   "type": "module",
   "keywords": [],
@@ -13,6 +13,7 @@
   "description": "",
   "dependencies": {
     "express": "^4.19.2",
+    "mongodb": "^6.6.0",
     "nodemon": "^3.1.0",
     "socket.io": "^4.7.5"
   }
