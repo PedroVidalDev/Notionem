@@ -1,3 +1,4 @@
+import gerarCorAleatoria from "../utils/gerarCor.js";
 import "./socketChat.js";
 import { entrouNoChat, enviarMensagem } from "./socketChat.js";
 
@@ -23,9 +24,10 @@ form.addEventListener("submit", (event) => {
     event.preventDefault();
 
     const usuario = localStorage.getItem("nome");
+    const cor = localStorage.getItem("cor");
     const texto = document.querySelector("#mensagem-input").value;
     
-    enviarMensagem({nomeSala, usuario, texto});
+    enviarMensagem({nomeSala, usuario, texto, cor});
 
     document.querySelector("#mensagem-input").value = "";
 })
@@ -43,15 +45,17 @@ function atualizarCampoMensagens(mensagem){
     const autor = document.createElement("p");
     autor.className = "autor";
     autor.innerHTML = mensagem.usuario;
+    autor.style.color = localStorage.getItem("cor");
+    autor.style.textAlign = "left";
+    autor.style.color = mensagem.cor;
 
     const texto = document.createElement("p");
     texto.className = "texto";
     texto.innerHTML = mensagem.texto;
-
+    
     if(mensagem.usuario == localStorage.getItem("nome")){
-        autor.style.color = "var(--cor-destaque)";
-        autor.style.textAlign = "right"
-        texto.style.textAlign = "right"
+        autor.style.textAlign = "right";
+        texto.style.textAlign = "right";
     }
 
     div.appendChild(autor);

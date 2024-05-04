@@ -11,8 +11,9 @@ form.addEventListener("submit", (event) => {
     mandarNomeUsuario(nome);
 })
 
-function salvarNome(nome){
-    localStorage.setItem("nome", nome);
+function salvarNome(usuario){
+    localStorage.setItem("nome", usuario.nome);
+    localStorage.setItem("cor", usuario.cor);
     window.location.href = "salas.html";
 }
 
