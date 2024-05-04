@@ -87,7 +87,7 @@ div.mensagem{
 
 p.autor{
     font-size: 0.5rem;
-    color: var(--cor-destaque);
+    color: red;
 }
 
 p.texto{

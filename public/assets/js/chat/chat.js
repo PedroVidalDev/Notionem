@@ -42,13 +42,15 @@ function atualizarCampoMensagens(mensagem){
     autor.className = "autor";
     autor.innerHTML = mensagem.usuario;
 
-    if(mensagem.usuario != localStorage.getItem("nome")){
-        autor.style.color = "red";
-    }
-
     const texto = document.createElement("p");
     texto.className = "texto";
     texto.innerHTML = mensagem.texto;
+
+    if(mensagem.usuario == localStorage.getItem("nome")){
+        autor.style.color = "var(--cor-destaque)";
+        autor.style.textAlign = "right"
+        texto.style.textAlign = "right"
+    }
 
     div.appendChild(autor);
     div.appendChild(texto);
