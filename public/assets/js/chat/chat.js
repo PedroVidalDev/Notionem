@@ -26,6 +26,8 @@ form.addEventListener("submit", (event) => {
     const texto = document.querySelector("#mensagem-input").value;
     
     enviarMensagem({nomeSala, usuario, texto});
+
+    document.querySelector("#mensagem-input").value = "";
 })
 
 botaoSair.addEventListener("click", (event) => {
