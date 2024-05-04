@@ -88,6 +88,8 @@ function atualizarCampoMensagens(mensagem){
     }
     
     campoMensagem.appendChild(div);
+    
+    campoMensagem.scrollTop = campoMensagem.scrollHeight;
 }
 
 export {atualizarCampoMensagens};

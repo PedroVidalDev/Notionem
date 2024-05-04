@@ -24,7 +24,7 @@ div.container-mensagens{
     width: 95%;
     height: 90%;
     padding: 20px;
-    justify-content: center;
+    justify-content: flex-end;
     overflow-y: scroll;
 }
 
