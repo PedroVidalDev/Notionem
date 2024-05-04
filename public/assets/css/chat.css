@@ -95,6 +95,16 @@ p.texto{
     color: white;
 }
 
+p.aviso-entrada{
+    font-size: 0.3rem;
+    color: white;
+    text-align: center;
+}
+
+span.negrito{
+    color: var(--cor-destaque);
+}
+
 button.sair{
     position: absolute;
     bottom: 5px;

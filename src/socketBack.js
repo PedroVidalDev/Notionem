@@ -8,8 +8,10 @@ io.on("connection", (socket) => {
         socket.emit("salvar_nome_usuario", (usuario));
     })
 
-    socket.on("entrar_sala", async (nomeSala) => {
-        socket.join(nomeSala);
+    socket.on("entrar_sala", async (dados) => {
+        socket.join(dados.nomeSala);
+        console.log(dados)
+        socket.broadcast.to(dados.nomeSala).emit("notificar_entrada_na_sala", dados);
     })
 
     socket.on("enviar_mensagem", async (mensagem, callback) => {

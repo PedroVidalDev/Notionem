@@ -16,4 +16,8 @@ socket.on("recebeu_mensagem", mensagem => {
     atualizarCampoMensagens(mensagem);
 })
 
+socket.on("notificar_entrada_na_sala", dados => {
+    atualizarCampoMensagens(dados);
+})
+
 export {enviarMensagem, entrouNoChat};

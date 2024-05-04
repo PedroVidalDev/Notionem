@@ -6,6 +6,9 @@ const parametrosUrl = new URLSearchParams(window.location.search);
 const nomeSala = parametrosUrl.get("nome");
 const titulo = document.querySelector("#titulo-chat");
 
+const usuario = localStorage.getItem("nome");
+const cor = localStorage.getItem("cor");
+
 const campoMensagem = document.querySelector("#container-mensagens");
 
 const form = document.querySelector("#form-digitar");
@@ -14,7 +17,7 @@ const botaoSair = document.querySelector("#sair");
 
 titulo.textContent = nomeSala;
 
-entrouNoChat(nomeSala);
+entrouNoChat({usuario, cor, nomeSala});
 
 if(!localStorage.getItem("nome")){
     window.location.href = "/";
@@ -39,27 +42,38 @@ botaoSair.addEventListener("click", (event) => {
 })
 
 function atualizarCampoMensagens(mensagem){
+    
     const div = document.createElement("div");
     div.className = "mensagem";
 
-    const autor = document.createElement("p");
-    autor.className = "autor";
-    autor.innerHTML = mensagem.usuario;
-    autor.style.color = localStorage.getItem("cor");
-    autor.style.textAlign = "left";
-    autor.style.color = mensagem.cor;
-
-    const texto = document.createElement("p");
-    texto.className = "texto";
-    texto.innerHTML = mensagem.texto;
+    if(mensagem.texto){
+        const autor = document.createElement("p");
+        autor.className = "autor";
+        autor.innerHTML = mensagem.usuario;
+        autor.style.color = localStorage.getItem("cor");
+        autor.style.textAlign = "left";
+        autor.style.color = mensagem.cor;
     
-    if(mensagem.usuario == localStorage.getItem("nome")){
-        autor.style.textAlign = "right";
-        texto.style.textAlign = "right";
-    }
+        const texto = document.createElement("p");
+        texto.className = "texto";
+        texto.innerHTML = mensagem.texto;
+        
+        if(mensagem.usuario == localStorage.getItem("nome")){
+            autor.style.textAlign = "right";
+            texto.style.textAlign = "right";
+        }
+    
+        div.appendChild(autor);
+        div.appendChild(texto);
+    } 
+    
+    else{
+        const entrada = `
+            <p class="aviso-entrada"> <span class="negrito"> ${mensagem.usuario} </span> entrou no chat! </p>
+        `
 
-    div.appendChild(autor);
-    div.appendChild(texto);
+        div.innerHTML += entrada;
+    }
     
     campoMensagem.appendChild(div);
 }
