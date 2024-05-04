@@ -1,3 +1,5 @@
+import "dotenv/config";
+
 import { atualizaSala, pegarHistorico } from "./db/salasDb.js";
 import io from "./server.js";
 

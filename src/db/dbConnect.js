@@ -1,6 +1,6 @@
 import { MongoClient } from "mongodb";
 
-const cliente = new MongoClient("mongodb+srv://pedrohvidals:CkzddjF3cHjfEdzm@cluster0.iegdbmd.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0");
+const cliente = new MongoClient(`mongodb+srv://${process.env.USERNAME_DATABASE}:${process.env.PASSWORD_DATABASE}@cluster0.iegdbmd.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`);
 
 let salasColecao;
 
