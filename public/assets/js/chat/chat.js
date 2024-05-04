@@ -34,6 +34,10 @@ function atualizarCampoMensagens(mensagem){
     autor.className = "autor";
     autor.innerHTML = mensagem.usuario;
 
+    if(mensagem.usuario != localStorage.getItem("nome")){
+        autor.style.color = "red";
+    }
+
     const texto = document.createElement("p");
     texto.className = "texto";
     texto.innerHTML = mensagem.texto;
