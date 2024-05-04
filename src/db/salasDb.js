@@ -21,4 +21,9 @@ async function pegarSala(sala){
     return salaAchada;
 }
 
-export {atualizaSala};
+async function pegarHistorico(sala){
+    const salaAchada = await salasColecao.findOne({nome: sala});
+    return salaAchada.historico;
+}
+
+export {atualizaSala, pegarHistorico};
