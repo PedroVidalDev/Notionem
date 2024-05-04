@@ -11,7 +11,11 @@ io.on("connection", (socket) => {
     socket.on("entrar_sala", async (dados) => {
         socket.join(dados.nomeSala);
         console.log(dados)
-        socket.broadcast.to(dados.nomeSala).emit("notificar_entrada_na_sala", dados);
+        socket.broadcast.to(dados.nomeSala).emit("notificar_entrada_ou_saida_na_sala", dados);
+    })
+
+    socket.on("sair_sala", async (dados) => {
+        socket.broadcast.to(dados.nomeSala).emit("notificar_entrada_ou_saida_na_sala", dados);
     })
 
     socket.on("enviar_mensagem", async (mensagem, callback) => {

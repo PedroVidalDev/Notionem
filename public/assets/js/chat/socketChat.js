@@ -8,16 +8,20 @@ function enviarMensagem(mensagem){
     });
 }
 
-function entrouNoChat(nomeSala){
-    socket.emit("entrar_sala", nomeSala)
+function entrouNoChat(dados){
+    socket.emit("entrar_sala", dados)
+}
+
+function saiuDoChat(dados){
+    socket.emit("sair_sala", dados);
 }
 
 socket.on("recebeu_mensagem", mensagem => {
     atualizarCampoMensagens(mensagem);
 })
 
-socket.on("notificar_entrada_na_sala", dados => {
+socket.on("notificar_entrada_ou_saida_na_sala", dados => {
     atualizarCampoMensagens(dados);
 })
 
-export {enviarMensagem, entrouNoChat};
+export {enviarMensagem, entrouNoChat, saiuDoChat};

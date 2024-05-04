@@ -1,6 +1,6 @@
 import gerarCorAleatoria from "../utils/gerarCor.js";
 import "./socketChat.js";
-import { entrouNoChat, enviarMensagem } from "./socketChat.js";
+import { entrouNoChat, enviarMensagem, saiuDoChat } from "./socketChat.js";
 
 const parametrosUrl = new URLSearchParams(window.location.search);
 const nomeSala = parametrosUrl.get("nome");
@@ -17,7 +17,7 @@ const botaoSair = document.querySelector("#sair");
 
 titulo.textContent = nomeSala;
 
-entrouNoChat({usuario, cor, nomeSala});
+entrouNoChat({usuario, cor, nomeSala, acao:"entrou"});
 
 if(!localStorage.getItem("nome")){
     window.location.href = "/";
@@ -37,6 +37,8 @@ form.addEventListener("submit", (event) => {
 
 botaoSair.addEventListener("click", (event) => {
     event.preventDefault();
+
+    saiuDoChat({usuario, cor, nomeSala, acao:"saiu"});
 
     window.location.href = "salas.html";
 })
@@ -68,9 +70,19 @@ function atualizarCampoMensagens(mensagem){
     } 
     
     else{
-        const entrada = `
-            <p class="aviso-entrada"> <span class="negrito"> ${mensagem.usuario} </span> entrou no chat! </p>
-        `
+        let entrada = "";
+
+        if(mensagem.acao == "entrou"){
+            entrada = `
+                <p class="aviso-entrada-saida"> <span class="negrito"> ${mensagem.usuario} </span> entrou no chat! </p>
+            `
+        }
+        else if(mensagem.acao == "saiu"){
+            entrada = `
+                <p class="aviso-entrada-saida"> <span class="negrito"> ${mensagem.usuario} </span> saiu no chat! </p>
+            ` 
+        }
+        
 
         div.innerHTML += entrada;
     }
