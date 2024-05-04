@@ -8,8 +8,12 @@ function enviarMensagem(mensagem){
     });
 }
 
+function entrouNoChat(nomeSala){
+    socket.emit("entrar_sala", nomeSala)
+}
+
 socket.on("recebeu_mensagem", mensagem => {
     atualizarCampoMensagens(mensagem);
 })
 
-export {enviarMensagem};
+export {enviarMensagem, entrouNoChat};

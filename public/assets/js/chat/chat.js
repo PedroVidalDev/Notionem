@@ -1,5 +1,5 @@
 import "./socketChat.js";
-import { enviarMensagem } from "./socketChat.js";
+import { entrouNoChat, enviarMensagem } from "./socketChat.js";
 
 const parametrosUrl = new URLSearchParams(window.location.search);
 const nomeSala = parametrosUrl.get("nome");
@@ -11,6 +11,8 @@ const form = document.querySelector("#form-digitar");
 
 titulo.textContent = nomeSala;
 
+entrouNoChat(nomeSala);
+
 if(!localStorage.getItem("nome")){
     window.location.href = "/";
 }
@@ -21,7 +23,7 @@ form.addEventListener("submit", (event) => {
     const usuario = localStorage.getItem("nome");
     const texto = document.querySelector("#mensagem-input").value;
     
-    enviarMensagem({usuario, texto});
+    enviarMensagem({nomeSala, usuario, texto});
 })
 
 function atualizarCampoMensagens(mensagem){
