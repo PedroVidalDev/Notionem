@@ -1,8 +1,7 @@
 import "dotenv/config";
 
-import { atualizaSala, pegarHistorico, pegarTodasSalas } from "./db/salasDb.js";
+import { atualizaSala, criarSala, pegarHistorico, pegarTodasSalas } from "./db/salasDb.js";
 import io from "./server.js";
-import { salasColecao } from "./db/dbConnect.js";
 
 const nomesUsuarios = [];
 
@@ -26,6 +25,12 @@ io.on("connection", (socket) => {
         const salas = await pegarTodasSalas();
 
         callback(salas);
+    })
+
+    socket.on("criar_sala", async (nome, callback) => {
+        const salas = await criarSala(nome);
+        console.log(salas)
+        callback();
     })
 
     socket.on("entrar_sala", async (dados) => {

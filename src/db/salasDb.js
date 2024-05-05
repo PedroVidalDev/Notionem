@@ -30,4 +30,11 @@ async function pegarTodasSalas(){
     return await salasColecao.find().toArray();
 }
 
-export {atualizaSala, pegarHistorico, pegarTodasSalas};
+async function criarSala(nome){
+    return await salasColecao.insertOne({
+        nome: nome,
+        historico: new Array
+    })
+}
+
+export {atualizaSala, pegarHistorico, pegarTodasSalas, criarSala};
