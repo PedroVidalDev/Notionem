@@ -3,6 +3,7 @@ import { entrouSalasMenu } from "./socketSalas.js";
 
 const divListaSalas = document.querySelector("#lista-salas");
 
+const botaoCriar = document.querySelector("#criar-sala");
 const botaoSair = document.querySelector("#sair");
 
 entrouSalasMenu();
@@ -26,6 +27,12 @@ function criarBotoesDeSalas(salas){
         divListaSalas.appendChild(button);
     })
 }
+
+botaoCriar.addEventListener("click", (event) => {
+    event.preventDefault();
+    
+    window.location.href = "criarSala.html";
+})
 
 botaoSair.addEventListener("click", (event) => {
     event.preventDefault();

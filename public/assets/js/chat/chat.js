@@ -13,7 +13,6 @@ const campoMensagem = document.querySelector("#container-mensagens");
 
 const form = document.querySelector("#form-digitar");
 
-const botaoCriar = document.querySelector("#criar-sala");
 const botaoSair = document.querySelector("#sair");
 
 titulo.textContent = nomeSala;
@@ -34,12 +33,6 @@ form.addEventListener("submit", (event) => {
     enviarMensagem({nomeSala, usuario, texto, cor});
 
     document.querySelector("#mensagem-input").value = "";
-})
-
-botaoCriar.addEventListener("click", (event) => {
-    event.preventDefault();
-
-    window.location.href = "criarSala.html";
 })
 
 botaoSair.addEventListener("click", (event) => {
