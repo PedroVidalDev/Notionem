@@ -4,12 +4,22 @@ import { atualizaSala, pegarHistorico, pegarTodasSalas } from "./db/salasDb.js";
 import io from "./server.js";
 import { salasColecao } from "./db/dbConnect.js";
 
+const nomesUsuarios = [];
+
 io.on("connection", (socket) => {
     console.log("Cliente conectado: " + socket.id);
 
     socket.on("mandar_nome_usuario", async (usuario) => {
-        console.log(usuario)
-        socket.emit("salvar_nome_usuario", (usuario));
+
+        if(nomesUsuarios.includes(usuario.nome)){
+            socket.emit("erro_nome_usuario");
+        } 
+       
+        else{
+            nomesUsuarios.push(usuario.nome);
+            socket.emit("salvar_nome_usuario", (usuario));
+        }
+
     })
 
     socket.on("entrou_salas_menu", async (callback) => {

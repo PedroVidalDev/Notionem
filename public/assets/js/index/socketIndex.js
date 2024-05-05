@@ -13,4 +13,8 @@ socket.on("salvar_nome_usuario", (usuario) => {
     salvarNome(usuario);
 })
 
+socket.on("erro_nome_usuario", () => {
+    alert("Erro no nome de usuario desejado, provavel que ja esteja em uso.");
+})
+
 export {mandarNomeUsuario};
