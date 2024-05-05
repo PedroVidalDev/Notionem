@@ -1,22 +1,36 @@
 import "./socketSalas.js";
+import { entrouSalasMenu } from "./socketSalas.js";
+
+const divListaSalas = document.querySelector("#lista-salas");
 
 const botaoSair = document.querySelector("#sair");
+
+entrouSalasMenu();
 
 if(!localStorage.getItem("nome")){
     window.location.href = "/";
 }
 
-const salas = document.querySelectorAll("#sala");
+function criarBotoesDeSalas(salas){
+    salas.forEach((sala) => {
+        let button = document.createElement("button");
+        button.id = "sala";
+        button.className = "sala";
+        button.innerHTML = sala.nome;
+        button.addEventListener("click", (event) => {
+            event.preventDefault();
 
-salas.forEach((sala) => {
-    sala.addEventListener("click", () => {
-        const nomeSala = sala.innerHTML.trim();
-        window.location.href = `chat.html?nome=${nomeSala}`
+            window.location.href = `chat.html?nome=${sala.nome}`
+        })
+
+        divListaSalas.appendChild(button);
     })
-})
+}
 
 botaoSair.addEventListener("click", (event) => {
     event.preventDefault();
 
     window.location.href = "index.html";
 })
+
+export {criarBotoesDeSalas};

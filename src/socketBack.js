@@ -1,7 +1,8 @@
 import "dotenv/config";
 
-import { atualizaSala, pegarHistorico } from "./db/salasDb.js";
+import { atualizaSala, pegarHistorico, pegarTodasSalas } from "./db/salasDb.js";
 import io from "./server.js";
+import { salasColecao } from "./db/dbConnect.js";
 
 io.on("connection", (socket) => {
     console.log("Cliente conectado: " + socket.id);
@@ -9,6 +10,12 @@ io.on("connection", (socket) => {
     socket.on("mandar_nome_usuario", async (usuario) => {
         console.log(usuario)
         socket.emit("salvar_nome_usuario", (usuario));
+    })
+
+    socket.on("entrou_salas_menu", async (callback) => {
+        const salas = await pegarTodasSalas();
+
+        callback(salas);
     })
 
     socket.on("entrar_sala", async (dados) => {
