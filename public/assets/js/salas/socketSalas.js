@@ -8,4 +8,8 @@ function entrouSalasMenu(){
     });
 }
 
-export {entrouSalasMenu};
+function encerrandoSessao(nome){
+    socket.emit("encerrando_sessao", nome);
+}
+
+export {entrouSalasMenu, encerrandoSessao};

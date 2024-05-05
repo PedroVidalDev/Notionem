@@ -1,5 +1,5 @@
 import "./socketSalas.js";
-import { entrouSalasMenu } from "./socketSalas.js";
+import { encerrandoSessao, entrouSalasMenu } from "./socketSalas.js";
 
 const divListaSalas = document.querySelector("#lista-salas");
 
@@ -36,6 +36,12 @@ botaoCriar.addEventListener("click", (event) => {
 
 botaoSair.addEventListener("click", (event) => {
     event.preventDefault();
+
+    let nomeUsuario = localStorage.getItem("nome");
+
+    encerrandoSessao(nomeUsuario);
+
+    localStorage.clear();
 
     window.location.href = "index.html";
 })

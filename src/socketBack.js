@@ -55,4 +55,10 @@ io.on("connection", (socket) => {
 
         callback(mensagem);
     })
+
+    socket.on("encerrando_sessao", async (nome) => {
+        let index = nomesUsuarios.indexOf(nome);
+
+        nomesUsuarios.splice(index, 1);
+    })
 })
