@@ -26,4 +26,8 @@ async function pegarHistorico(sala){
     return salaAchada.historico;
 }
 
-export {atualizaSala, pegarHistorico};
+async function pegarTodasSalas(){
+    return await salasColecao.find().toArray();
+}
+
+export {atualizaSala, pegarHistorico, pegarTodasSalas};
