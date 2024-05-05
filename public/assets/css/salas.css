@@ -5,7 +5,7 @@ body{
 
 div.lista-salas{
     position: relative;
-    width: 90%;
+    width: 40%;
     height: 60%;
     overflow-y: scroll;
     display: flex;
@@ -14,7 +14,7 @@ div.lista-salas{
     justify-content: flex-start;
 }
 
-button.sala{
+button.sala, button.criar-sala{
     width: 90%;
     min-height: 100px;
     height: 100px;
@@ -28,9 +28,13 @@ button.sala{
     transition: .5s;
 }
 
-button.sala:hover{
+button.sala:hover, button.criar-sala:hover{
     background: var(--cor-destaque-escura);
     color: var(--cor-destaque);
+}
+
+button.criar-sala{
+    width: 40%;
 }
 
 div.lista-salas::-webkit-scrollbar{
