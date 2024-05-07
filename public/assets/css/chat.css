@@ -95,6 +95,11 @@ p.texto{
     color: white;
 }
 
+p.data{
+    font-size: 0.2rem;
+    color: gray;
+}
+
 p.aviso-entrada-saida{
     font-size: 0.3rem;
     color: white;

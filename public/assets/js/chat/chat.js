@@ -59,14 +59,20 @@ function atualizarCampoMensagens(mensagem){
         const texto = document.createElement("p");
         texto.className = "texto";
         texto.innerHTML = mensagem.texto;
+
+        const data = document.createElement("p");
+        data.className = "data";
+        data.innerHTML = mensagem.data;
         
         if(mensagem.usuario == localStorage.getItem("nome")){
             autor.style.textAlign = "right";
             texto.style.textAlign = "right";
+            data.style.textAlign = "right";
         }
     
         div.appendChild(autor);
         div.appendChild(texto);
+        div.appendChild(data);
     } 
     
     else{
