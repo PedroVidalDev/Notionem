@@ -49,7 +49,6 @@ io.on("connection", (socket) => {
     })
 
     socket.on("enviar_mensagem", async (mensagem, callback) => {
-        socket.broadcast.to(mensagem.nomeSala).emit("recebeu_mensagem", mensagem)
         const dataAtual = new Date();
         const dia = dataAtual.getDate();
         const mes = dataAtual.getMonth() + 1;
@@ -60,6 +59,7 @@ io.on("connection", (socket) => {
         const data = (`${dia}/${mes}/${ano} ${hora}:${minutos}`);
         mensagem.data = data;
 
+        socket.broadcast.to(mensagem.nomeSala).emit("recebeu_mensagem", mensagem)
         const res = await atualizaSala(mensagem);
 
         callback(mensagem);
